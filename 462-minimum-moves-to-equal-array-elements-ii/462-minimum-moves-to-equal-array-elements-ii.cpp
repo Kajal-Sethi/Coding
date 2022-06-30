@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minMoves2(vector<int>& nums) {
-        // shift to the median/mean of the array
+        // shift to the median of the array
         int i, median, count=0, n=nums.size();
         sort(nums.begin(), nums.end());
         
