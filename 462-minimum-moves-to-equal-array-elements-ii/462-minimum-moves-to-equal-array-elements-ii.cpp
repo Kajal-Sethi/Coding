@@ -11,13 +11,6 @@ public:
         else
             median = nums[n/2];
         
-//         int median = 
-//         for(i=0; i<nums.size(); i++)
-//             sum+=nums[i];
-        
-//         sum = floor(float(sum)/nums.size());
-         cout<<median;
-        
         for(i=0; i<nums.size(); i++)
             count+=abs(median-nums[i]);
         
