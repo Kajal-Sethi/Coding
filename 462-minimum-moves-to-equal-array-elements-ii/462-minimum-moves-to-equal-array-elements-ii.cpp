@@ -4,6 +4,8 @@ public:
     vector<int> med;
     int partition(vector<int>& nums, int l, int h)
     {
+        int num = l + rand()%(h-l+1);
+        swap(nums[h], nums[num]);
         int i=l-1,j,pi=h;
         for(j=l; j<h; j++)
         {
@@ -23,13 +25,10 @@ public:
         if(l<=h)
         {
             int pi = partition(nums, l, h);
-            // quick(nums, l, pi-1, find);
-            // quick(nums, pi+1, h, find);
             
             if(pi==find)
             {
                 med.push_back(nums[pi]);
-              //  cout<<nums[pi]<<" ";
                 return;
             }
             
