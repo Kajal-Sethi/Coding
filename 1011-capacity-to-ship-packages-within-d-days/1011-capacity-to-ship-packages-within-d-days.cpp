@@ -17,7 +17,6 @@ public:
                 
             else
             {
-                // cout<<weights[i]<<" ";
                 sum=weights[i];
                 count++;
             }
@@ -45,17 +44,13 @@ public:
         
         if(days>=weights.size())
             return minn;
-     //   minn = max(minn, ceil(sum/weights.size()));
        
         // perform b.search btw sum and minn to get a capacity 
         // find the number of days for that capacity 
         while(minn<sum)
         {
             mid = (float(sum+minn)/2);
-              cout<<mid<<" ";
-           
             req = solve(weights, mid);
-            cout<<req<<endl;
             
             if(req<=days)
                 sum=mid;
@@ -63,21 +58,6 @@ public:
             else 
                 minn=mid+1;
         }
-        
-//         int prev=mid, use;
-//         for(i=mid-1; i>=minn; i--)
-//         {
-//             use = solve(weights, i);
-//             cout<<endl<<i<<" ye "<<use;
-//             if(use==days || use==req)
-//                 prev=i;
-            
-//             else
-//                 return prev;
-//         }        
-        
-        // cout<<" ppp ";
-        //return prev;
         
         return minn;
     }
