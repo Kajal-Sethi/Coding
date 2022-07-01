@@ -12,24 +12,20 @@ public:
             
             else if(sum+nums[i]==capacity)
             {
-             //   cout<<" here ";
                 count++;
                 sum=0;
             }
             
             else
             {
-       //         cout<<nums[i]<<" ";
                 sum=nums[i];
                 count++;
             }
         }
         
         if(sum!=0 && sum<=capacity)
-        {
-     //       cout<<" here ";
             count++;
-        }
+
         return count;
     }
         
@@ -55,12 +51,9 @@ public:
         {
             // if mid is the capacity of each bag do we get m bags
             mid=(minn+sum)/2;
-       //     cout<<mid<<" ";
             if(solve(nums, mid)<=m)
-            {
                 sum=mid;
-         //       cout<<solve(nums, mid)<<" "<<mid<<endl;
-            }
+
             else
             {
                 minn=mid+1;
