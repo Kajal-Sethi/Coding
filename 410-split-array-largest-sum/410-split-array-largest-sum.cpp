@@ -60,10 +60,7 @@ public:
                 cout<<minn;
             }
         }
-        
-//         cout<<endl<<" val is "<<solve(nums, 6);
-        
-//         cout<<solve(nums, 6);
+
         return minn;
     }
 };
