@@ -31,19 +31,5 @@ public:
         
         return (ver*hor)%1000000007;
             
-//             area=0;
-//             for(j=0; j<verticalCuts.size()-1; j++)
-//             {
-//                 // cout<<horizontalCuts[i]<<verticalCuts[j]<<" ";
-
-//                 area = ((horizontalCuts[i+1] - horizontalCuts[i]) * (verticalCuts[j+1] - verticalCuts[j]))%1000000007;
-//                 maxx=max(maxx, area);
-//             }
-            
-//             // cout<<horizontalCuts[i]<<verticalCuts[j]<<" ";
-//             // cout<<endl;
-//         }
-        
-//         return maxx;
     }
 };
