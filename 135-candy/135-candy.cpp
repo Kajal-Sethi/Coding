@@ -3,7 +3,7 @@ public:
     int candy(vector<int>& rate) {
         // use min heap
         vector<int>candies(rate.size(),1);
-        int i;
+        int i, need=0;
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
           
         for(i=0; i<rate.size(); i++)
@@ -20,27 +20,31 @@ public:
                 // find konsa rate bada he 
                 int maxx=max(candies[curr.second+1], candies[curr.second-1]);
                 candies[curr.second] = maxx+1;
+                need+=maxx+1;
             }
             
             else if(curr.second+1<rate.size() && rate[curr.second]>rate[curr.second+1])
             {
                 candies[curr.second] = candies[curr.second+1]+1;
+                need+=candies[curr.second+1]+1;
             }
             
             else if(curr.second-1>=0 && rate[curr.second]>rate[curr.second-1])
             {
                 candies[curr.second] = candies[curr.second-1]+1;
+                need+=candies[curr.second-1]+1;
             }
-            
             else
+            {    
+                need+=candies[curr.second];
                 continue;
+            }
         }
         
         int weneed=0;
         for(i=0; i<candies.size(); i++)
-        {
             weneed+=candies[i];
-        }
-        return weneed;
+        
+        return need;
     }
 };
