@@ -13,7 +13,6 @@ public:
         {
             // val, index
             pair<int, int> curr = pq.top();
-            cout<<curr.first<<" "<<curr.second<<endl;
             pq.pop();
             
             if(curr.second+1<rate.size() && rate[curr.second]>rate[curr.second+1] && curr.second-1>=0 && rate[curr.second]>rate[curr.second-1])
@@ -40,7 +39,6 @@ public:
         int weneed=0;
         for(i=0; i<candies.size(); i++)
         {
-            cout<<candies[i]<<" ";
             weneed+=candies[i];
         }
         return weneed;
