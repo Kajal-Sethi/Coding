@@ -41,10 +41,6 @@ public:
             }
         }
         
-        int weneed=0;
-        for(i=0; i<candies.size(); i++)
-            weneed+=candies[i];
-        
         return need;
     }
 };
