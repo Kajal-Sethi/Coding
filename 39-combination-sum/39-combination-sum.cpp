@@ -17,18 +17,20 @@ public:
         if(target-arr[index]>=0)
         {
             // create a new array
-            vector<int> send=final;
+            // vector<int> send=final;
+            
+            solve(arr, target, final, index+1);
             final.push_back(arr[index]);
             solve(arr, target-arr[index], final, index);            
             
-            arr.erase(arr.begin()+index);
-            solve(arr, target, send, index);
+            // arr.erase(arr.begin()+index);
+            
         }
         
         else
         {
-            arr.erase(arr.begin()+index);
-            solve(arr, target, final, index);
+            // arr.erase(arr.begin()+index);
+            solve(arr, target, final, index+1);
         }
     }
     
