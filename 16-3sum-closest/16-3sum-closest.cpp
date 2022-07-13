@@ -1,7 +1,7 @@
 class Solution {
 public:
     int threeSumClosest(vector<int>& nums, int target) {
-        int maxx = 20002, i, j, k, sum, exact;
+        int maxx = 20002, i, j, k, sum, exact= 20002;
         
         sort(nums.begin(), nums.end());
         
@@ -19,11 +19,14 @@ public:
                 
                 else if(sum>target)
                 {
-                    if(maxx>abs(target-sum))
-                    {
-                        maxx = abs(target-sum);
+                    if(abs(target-exact)>abs(target-sum))
                         exact = sum;
-                    }
+                    
+                    // if(maxx>abs(target-sum))
+                    // {
+                    //     maxx = abs(target-sum);
+                    //     exact = sum;
+                    // }
                     
                     k--;
                 }
@@ -31,17 +34,15 @@ public:
                 else
                 {
                     
-//                     if(maxx>abs(target-sum))
-//                     {
-//                         maxx = abs(target-sum);
-//                         exact = sum;
-//                     }
-                    
-                    if(maxx>abs(target-sum))
-                    {
-                        maxx = abs(target-sum);
+                    if(abs(target-exact)>abs(target-sum))
                         exact = sum;
-                    }
+
+                    
+                    // if(maxx>abs(target-sum))
+                    // {
+                    //     maxx = abs(target-sum);
+                    //     exact = sum;
+                    // }
                     
                     j++;
                 }
