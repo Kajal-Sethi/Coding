@@ -12,14 +12,13 @@
 class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-        // use a stack and a q
+        // use 2 stack. one from left to right and second from right to left
         
         vector<vector<int>> ans;
         if(root==NULL)
             return ans;
             
         TreeNode* curr;
-        queue<TreeNode*> q;
         stack<TreeNode*> st1, st2;
         
         st1.push(root);
