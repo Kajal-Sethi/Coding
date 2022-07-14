@@ -12,6 +12,7 @@
 class Solution {
 public:
     
+    map<int, int> mp;
     int curr;
     
     TreeNode* solve(vector<int>& inorder, vector<int>& postorder, int start, int end)
@@ -30,10 +31,10 @@ public:
         if(start==end)
             return root;
         
-        int i;
-        for(i=0; i<postorder.size(); i++)
-            if(inorder[i]==postorder[curr+1])
-                break;
+        int i = mp[postorder[curr+1]];
+        // for(i=0; i<postorder.size(); i++)
+        //     if(inorder[i]==postorder[curr+1])
+        //         break;
         
         root->right = solve(inorder, postorder, i+1, end);
         root->left = solve(inorder, postorder, start, i-1);
@@ -45,6 +46,10 @@ public:
         // post: LRP
         // in: LPR
         curr=inorder.size()-1;
+        
+        for(int i=0; i<inorder.size(); i++)
+            mp[inorder[i]] = i;
+        
         return solve(inorder, postorder, 0, inorder.size()-1);
     }
 };
