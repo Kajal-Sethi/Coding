@@ -14,7 +14,7 @@ public:
     
     // stores the index of the preoder we are currently at
     int curr;
-        
+    map<int, int>mp;
     // start and end are for inorder. it tells us the size of array to be considered in inorder
     TreeNode* solve(vector<int>& preorder, vector<int>& inorder, int start, int end)
     {
@@ -31,10 +31,7 @@ public:
             return root;
         
         // find the breaking pt in inorder
-        int i;
-        for(i=0; i<inorder.size(); i++)
-            if(inorder[i]==preorder[curr-1])
-                break;
+        int i = mp[preorder[curr-1]];
         
         root->left = solve(preorder, inorder, start, i-1);
         root->right = solve(preorder, inorder, i+1, end);
@@ -46,6 +43,8 @@ public:
         // pre: PLR
         // in: LPR
         curr=0;
+        for(int i=0; i<inorder.size(); i++)
+            mp[inorder[i]] = i;
         return solve(preorder, inorder, 0, preorder.size()-1);
     }
 };
