@@ -15,45 +15,24 @@ public:
         }
         
         int p=0, n=0; 
-        // if(pos[p]<neg[n])
-        // {
-            ans.push_back(nums[pos[p]]);
-            p++;
-            while(p+n<nums.size())
+
+        ans.push_back(nums[pos[p]]);
+        p++;
+        while(p+n<nums.size())
+        {
+            if(p<=n)
             {
-                if(p<=n)
-                {
-                    ans.push_back(nums[pos[p]]);
-                    p++;
-                }    
-                
-                else
-                {
-                    ans.push_back(nums[neg[n]]);
-                    n++;
-                }  
-            }
-        // }
-        
-//         else
-//         {
-//             ans.push_back(nums[neg[n]]);
-//             n++;
-//             while(p+n<nums.size())
-//             {
-//                 if(p<=n)
-//                 {
-//                     ans.push_back(nums[pos[p]]);
-//                     p++;
-//                 }    
-                
-//                 else
-//                 {
-//                     ans.push_back(nums[neg[n]]);
-//                     n++;
-//                 }  
-//             }
-//         }
+                ans.push_back(nums[pos[p]]);
+                p++;
+            }    
+
+            else
+            {
+                ans.push_back(nums[neg[n]]);
+                n++;
+            }  
+        }
+
         return ans;
     }
 };
