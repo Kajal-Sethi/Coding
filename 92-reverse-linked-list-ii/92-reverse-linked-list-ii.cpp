@@ -40,7 +40,7 @@ public:
             d=d->next;
         }
         
-        cout<<b->val<<" "<<d->val;
+        // cout<<b->val<<" "<<d->val;
 
         c=d->next;
         // reverse btw b and d
