@@ -31,8 +31,6 @@ public:
                      
 //                      else
                          ans+=itr->second * use2->second;
-                    
-                    // cout<<itr->first<<" "<<itr->second<<"     "<<use2->second<<" "<<use2->first<<endl;
                  }
             }
         }
