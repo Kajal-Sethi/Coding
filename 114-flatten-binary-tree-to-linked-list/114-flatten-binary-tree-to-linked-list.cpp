@@ -11,29 +11,26 @@
  */
 class Solution {
 public:
-    vector<TreeNode*> use;
-    
-    void preorder(TreeNode *root)
-    {
-        if(root==NULL)
-            return;
-            
-        use.push_back(root);
-        preorder(root->left);
-        preorder(root->right);
-    }
     
     void flatten(TreeNode* root) {
-        int i;
+        TreeNode* temp, *rig;
         
-        if(root==NULL)
-            return;
-        
-        preorder(root);
-        for(i=0; i<use.size()-1; i++)
+        while(root)
         {
-            use[i]->left=NULL;
-            use[i]->right=use[i+1];
+            // ek left chahiye
+            if(root->left)
+            {
+                rig = root->right;
+                temp = root->left;
+
+                while(temp->right)
+                    temp=temp->right;
+
+                temp->right = rig;
+                root->right=root->left;
+                root->left=NULL;
+            }
+            root=root->right;
         }
     }
 };
