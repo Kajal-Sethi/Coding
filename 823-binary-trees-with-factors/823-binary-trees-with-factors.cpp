@@ -1,47 +1,29 @@
 class Solution {
 public:
     int numFactoredBinaryTrees(vector<int>& arr) {
-        // singles + (node having same children) + (node having different children)  
-        sort(arr.begin(), arr.end());
-        vector<long long> dp(arr.size(),1);
-        long long i, total=1;
+        int n=arr.size(), i;
+        map<int, long long> dp;
         
-        dp[0]=1;
-        for(i=1; i<arr.size(); i++)
+        sort(arr.begin(), arr.end());
+        for(i=0; i<n; i++)
+            dp[arr[i]] = 1;
+        
+        for(auto it:dp)
         {
-          //  vector<int> vis(arr.size(),0);
-            for(int j=0; j<i; j++)
+            for(i=0; arr[i]<it.first; i++)
             {
-                // we have to find the miltiplications for arr[i]
-                if(arr[i]%arr[j]!=0)
-                    continue;
-                
-                else
+                if(it.first%arr[i]==0)
                 {
-                    int num = arr[i]/arr[j];
-                    // num in arr 
-                    vector<int>:: iterator it;
-                    it = find(arr.begin(), arr.end(), num);
-                    
-                    if(it==arr.end())
-                        dp[i];
-                    
-                    else
-                    {
-                        // if num is present
-                        dp[i]+= dp[j] * dp[it-arr.begin()];
-                    }
+                    int prod = it.first/arr[i];
+                    dp[it.first]+=dp[arr[i]]*dp[prod];
                 }
             }
-            
-            if(dp[i]==0)
-                dp[i]=1;
-            
-            total+=dp[i];
         }
         
+        long long sum=0;
+        for(auto it:dp)
+           sum+=it.second;
         
-        
-        return total%1000000007;
+        return sum%int(1e9+7);
     }
 };
