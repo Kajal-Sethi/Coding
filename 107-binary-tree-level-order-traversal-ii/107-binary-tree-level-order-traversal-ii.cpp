@@ -17,6 +17,7 @@ public:
         
         if(root==NULL)
             return ans;
+        
         queue<TreeNode*> q;
         q.push(root);
         while(!q.empty())
@@ -34,16 +35,21 @@ public:
                     q.push(use->right);
                 
                 temp.push_back(use->val);
-                
                 siz--;
             }
             ans.push_back(temp);
         }
         
-        int end=ans.size()-1;
-        for(; end>=0; end--)
-            ret.push_back(ans[end]);
+        int start=0, end=ans.size()-1;
         
-        return ret;
+        while(start<end)
+        {
+            // temp = ans[start];
+            swap(ans[start], ans[end]);
+            start++;
+            end--;
+        }
+        
+        return ans;
     }
 };
